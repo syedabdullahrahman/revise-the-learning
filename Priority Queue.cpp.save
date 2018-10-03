@@ -1,0 +1,56 @@
+// https://www.geeksforgeeks.org/implement-min-heap-using-stl/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class point
+	{
+
+		int x,y;
+	public:
+		point(int _x,int _y)
+			{
+			x= _x;
+			y= _y;
+			}
+		int getx() const
+			{
+			return x;
+			}
+		int gety() const
+			{
+			return y;
+			}
+	};
+class comparator
+	{
+	public:
+		int operator()( point &p1, point &p2)
+			{
+			return p1.getx()>p2.getx();
+			}
+	};
+	//  use of constant ttps://www.geeksforgeeks.org/const-member-functions-c/
+	//   http://duramecho.com/ComputerInformation/WhyHowCppConst.html
+
+	// When a function is declared as const, it can be called on any type of object.
+	// Non-const functions can only be called by non-const objects.
+int main()
+	{
+
+	priority_queue<point, vector<point>, comparator> v ;
+	v.push(point(10,2));
+	v.push(point(1,20));
+	v.push(point(15,2));
+	v.push(point(1,2));
+    while (v.empty() == false) 
+    { 
+        Point p = pq.top(); 
+        cout << "(" << p.getX() << ", " << p.getY() << ")"; 
+        cout << endl; 
+        pq.pop(); 
+    } 
+  
+    return 0; 
+
+	}
